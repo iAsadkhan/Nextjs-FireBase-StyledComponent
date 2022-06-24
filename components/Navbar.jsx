@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/Link";
+import { useAuth } from "../auth/AuthContext";
+import { Text } from "./Text";
 
 const NavContainer = styled.div`
 	display: flex;
@@ -10,29 +12,44 @@ const NavContainer = styled.div`
 	background: #ea454c;
 	justify-content: space-between;
 `;
-const Text = styled.p`
-	font-size: 40px;
-	color: #fff;
-	padding: 10px;
-	cursor: pointer;
-`;
 
 function Navbar() {
 	// const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 	const router = useRouter();
 	const route = router.pathname.split("/");
+	const { user, logout } = useAuth();
 	// consol;
 	return (
 		<NavContainer>
-			<Text>Firext</Text>
-			{route[1] === "" ? (
-				<Link href="/signup">
-					<Text>Signup</Text>
-				</Link>
+			<Text color="#fff" pad="10px" size="40px">
+				Firext
+			</Text>
+			{!user ? (
+				route[1] === "" ? (
+					<Link href="/signup">
+						<Text color="#fff" pad="10px" size="20px" cursor="pointer">
+							Signup
+						</Text>
+					</Link>
+				) : (
+					<Link href="/">
+						<Text color="#fff" pad="10px" size="20px" cursor="pointer">
+							Login
+						</Text>
+					</Link>
+				)
 			) : (
-				<Link href="/">
-					<Text>Login</Text>
-				</Link>
+				<Text
+					color="#fff"
+					pad="10px"
+					size="20px"
+					cursor="pointer"
+					onClick={() => {
+						logout(), router.push("/");
+					}}
+				>
+					Logout
+				</Text>
 			)}
 		</NavContainer>
 	);
