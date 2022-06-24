@@ -16,6 +16,11 @@ const ContainerCenter = styled.div`
 	max-width: 1088px;
 	gap: 10px;
 	background: #f8f8f8;
+
+	@media (max-width: 1024px) {
+		flex-direction: column;
+		height: auto;
+	}
 `;
 const ContainerContent = styled.div`
 	display: flex;
@@ -25,6 +30,11 @@ const ContainerContent = styled.div`
 	background-image: ${(props) => (props?.bg ? `url(${props.bg})` : "none")};
 	background-repeat: no-repeat;
 	background-size: cover;
+
+	@media (max-width: 1024px) {
+		height: 100%;
+		width: 100%;
+	}
 `;
 
 const Container = styled.div`

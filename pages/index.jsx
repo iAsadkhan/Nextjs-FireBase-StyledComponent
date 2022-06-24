@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { Button } from "../components/Button";
 import {
 	Container,
 	ContainerCenter,
@@ -38,7 +39,7 @@ export default function Home() {
 									<Input type="text" placeholder="Enter Email" />
 								</Container>
 
-								<Container>
+								<Container margin="0 0 20px 0">
 									<Text weight="600" pad="3px 0 3px 0">
 										Password
 									</Text>
@@ -47,13 +48,39 @@ export default function Home() {
 								<Container
 									direction="row"
 									justify="space-between"
-									margin="10px 0"
+									margin="0 0 20px 0"
 								>
 									<Container direction="row" width="auto" align="center">
-										<Input type="checkbox" />
+										<Input type="checkbox" width="auto" />
 										<Text>Remember me</Text>
 									</Container>
 									<Text>Forgot password</Text>
+								</Container>
+								<Container margin="0 0 15px 0">
+									<Button fill="#EA454C" shadow={true}>
+										<Text color="#fff" pad="5px 0">
+											Sign in
+										</Text>
+									</Button>
+								</Container>
+								<Container margin="0 0 20px 0">
+									<Button border="1px solid rgba(0, 0, 0, 0.25)">
+										<Container direction="row" justify="center" align="center">
+											<Image
+												src="/images/Google.svg"
+												alt="google"
+												width="25px"
+												height="25px"
+											/>
+											<Text pad="0 0 0 5px">Sign in with Google</Text>
+										</Container>
+									</Button>
+								</Container>
+								<Container justify="center" direction="row">
+									<Text>Don’t have an account? </Text>
+									<Text disp="inline" color="#EA454C" pad="0 0 0 5px">
+										Sign up fo free!
+									</Text>
 								</Container>
 							</form>
 						</Container>

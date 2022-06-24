@@ -8,5 +8,6 @@ const Text = styled.p`
 	color: ${(props) => (props?.color ? props.color : "#000")};
 	text-align: ${(props) => props?.align && props.align};
 	letter-spacing: 0.03rem;
+	display: ${(props) => props?.disp && props.disp}; ;
 `;
 export { Text };
