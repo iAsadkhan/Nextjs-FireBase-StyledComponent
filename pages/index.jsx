@@ -12,11 +12,24 @@ import { Input } from "../components/Input";
 import { Text } from "../components/Text";
 import styles from "../styles/Home.module.css";
 import React from "react";
+import { useAuth } from "../auth/AuthContext";
+import { useRouter } from "next/router";
+
 export default function Home() {
 	const [userCred, setUserCred] = React.useState({ email: "", password: "" });
-	function handleSubmit(e) {
+	const { user, login } = useAuth();
+	const { router } = useRouter();
+
+	async function handleSubmit(e) {
 		e.preventDefault();
 		console.log(user);
+		try {
+			await login(userCred.email, userCred.password);
+			router.push("/welcome");
+			console.log(router);
+		} catch (error) {
+			console.log(error);
+		}
 	}
 	return (
 		<div>

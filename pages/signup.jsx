@@ -13,17 +13,21 @@ import { Text } from "../components/Text";
 import styles from "../styles/Home.module.css";
 import React from "react";
 import { useAuth } from "../auth/AuthContext";
+import { useRouter } from "next/router";
 
 export default function Signup() {
 	const [userCred, setUserCred] = React.useState({ email: "", password: "" });
 	const { user, signup } = useAuth();
+	const { router } = useRouter();
 
 	async function handleSubmit(e) {
 		e.preventDefault();
 		try {
 			await signup(userCred.email, userCred.password);
+			router.push("/welcome");
+			console.log(router);
 		} catch (error) {
-			console.log * err;
+			console.log(error);
 		}
 		console.log(user);
 	}
