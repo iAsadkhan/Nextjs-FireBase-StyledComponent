@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/Link";
-import { useAuth } from "../auth/AuthContext";
+import { useAuth } from "auth/AuthContext";
 import { Text } from "./Text";
 
 const NavContainer = styled.div`

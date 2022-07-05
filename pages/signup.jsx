@@ -1,18 +1,18 @@
 import Head from "next/head";
 import Image from "next/image";
 
-import { Button } from "../components/Button";
+import { Button } from "components/Button";
 import {
 	Container,
 	ContainerCenter,
 	ContainerContent,
 	ContainerFlex,
-} from "../components/Container";
-import { Input } from "../components/Input";
-import { Text } from "../components/Text";
-import styles from "../styles/Home.module.css";
+} from "components/Container";
+import { Input } from "components/Input";
+import { Text } from "components/Text";
+import styles from "styles/Home.module.css";
 import React from "react";
-import { useAuth } from "../auth/AuthContext";
+import { useAuth } from "auth/AuthContext";
 import { useRouter } from "next/router";
 
 export default function Signup() {
